@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids&Us Summer Fun Week</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fa;
+            padding: 15px;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 390px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Hero */
+        .hero-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v20h40V20c0-11.046-8.954-20-20-20z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .brand-logo {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .brand-text {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .brand-text .letter {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        
+        .brand-text .letter:nth-child(1) { animation-delay: 0.1s; color: #ff6b9d; }
+        .brand-text .letter:nth-child(2) { animation-delay: 0.2s; color: #4ecdc4; }
+        .brand-text .letter:nth-child(3) { animation-delay: 0.3s; color: #45b7d1; }
+        .brand-text .letter:nth-child(4) { animation-delay: 0.4s; color: #96ceb4; }
+        .brand-text .letter:nth-child(5) { animation-delay: 0.5s; color: #feca57; }
+        .brand-text .letter:nth-child(6) { animation-delay: 0.6s; color: #ff9ff3; }
+        .brand-text .letter:nth-child(7) { animation-delay: 0.7s; color: #54a0ff; }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-3px); }
+        }
+        
+        .tagline {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .theme-banner {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        
+        /* Quick Info Strip */
+        .quick-info {
+            background: linear-gradient(135deg, #ff6b9d, #feca57);
+            color: white;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: center;
+        }
+        
+        .info-item {
+            background: rgba(255,255,255,0.15);
+            padding: 12px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .info-label {
+            font-size: 0.75em;
+            opacity: 0.9;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-value {
+            font-size: 0.95em;
+            font-weight: 700;
+        }
+        
+        /* Coordinator Card */
+        .coordinator-card {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+        }
+        
+        .coordinator-title {
+            font-size: 0.8em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .coordinator-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .coordinator-phone {
+            font-size: 1.1em;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        /* Content Cards */
+        .content-section {
+            padding: 0 20px 20px;
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 700;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-header .icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        /* Schedule Styles */
+        .schedule-list {
+            list-style: none;
+        }
+        
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        
+        .schedule-time {
+            background: linear-gradient(135deg, #ff6b9d, #feca57);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            font-weight: 600;
+            min-width: 85px;
+            text-align: center;
+            margin-right: 15px;
+        }
+        
+        .schedule-activity {
+            flex: 1;
+            font-size: 0.9em;
+            color: #333;
+        }
+        
+        /* Week Plan */
+        .week-days {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .day-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .day-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .day-item.special {
+            border-left-color: #feca57;
+            background: linear-gradient(135deg, #fff9e6, #fef5d3);
+        }
+        
+        .day-item.event {
+            border-left-color: #ff6b9d;
+            background: linear-gradient(135deg, #ffe6f2, #ffd6e8);
+        }
+        
+        .day-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .day-emoji {
+            font-size: 1.3em;
+            margin-right: 10px;
+        }
+        
+        .day-name {
+            font-weight: 700;
+            color: #333;
+            font-size: 0.95em;
+        }
+        
+        .day-desc {
+            font-size: 0.85em;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .day-note {
+            background: rgba(254, 202, 87, 0.2);
+            color: #b8860b;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-top: 8px;
+            text-align: center;
+        }
+        
+        .weather-note {
+            background: rgba(84, 160, 255, 0.2);
+            color: #2563eb;
+        }
+        
+        /* Packing Lists - New Design */
+        .packing-section-full {
+            margin-bottom: 25px;
+        }
+        
+        .packing-title-main {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1em;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 12px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .packing-items-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .packing-items-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .packing-item-card {
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .packing-item-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .item-icon {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+        
+        .item-text {
+            font-size: 0.8em;
+            color: #333;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .item-text small {
+            color: #666;
+            font-size: 0.85em;
+            font-weight: 400;
+        }
+        
+        /* Important Box */
+        .important-banner {
+            background: linear-gradient(135deg, #ff6b9d, #ff8a80);
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+        }
+        
+        .important-subtitle {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        /* Health Alert */
+        .health-alert {
+            background: linear-gradient(135deg, #feca57, #ff9f43);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .footer-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .footer-phone {
+            font-size: 1.5em;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+        
+        .footer-subtitle {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+        
+        .farewell {
+            background: linear-gradient(135deg, #feca57, #ff9f43);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+        }
+        
+        @media print {
+            .print-btn { display: none; }
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- 
+        =====================================================
+        SECCIÓN 1: HEADER CON TEMÁTICA
+        ✏️ EDITAR: Cambiar la temática de la semana
+        =====================================================
+        -->
+        <div class="hero-header">
+            <div class="brand-logo">
+                <div class="brand-text">
+                    <span class="letter">K</span><span class="letter">I</span><span class="letter">D</span><span class="letter">S</span><span class="letter">&</span><span class="letter">U</span><span class="letter">S</span>
+                </div>
+                <div class="tagline">my English</div>
+                <!-- ✏️ CAMBIAR AQUÍ: Emoji y nombre de la temática -->
+                <div class="theme-banner">🎪 CIRCUS</div>
+            </div>
+        </div>
+        
+        <!-- 
+        =====================================================
+        SECCIÓN 2: FECHAS Y HORARIO
+        ✏️ EDITAR: Cambiar las fechas de la semana
+        =====================================================
+        -->
+        <div class="quick-info">
+            <div class="info-item">
+                <div class="info-label">Semana</div>
+                <!-- ✏️ CAMBIAR AQUÍ: Fechas de la semana -->
+                <div class="info-value">Del 30 de Junio al 04 de Julio</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Horario</div>
+                <!-- ✏️ CAMBIAR AQUÍ: Horario si es diferente -->
+                <div class="info-value">9:00 - 14:00h</div>
+            </div>
+        </div>
+        
+        <!-- 
+        =====================================================
+        SECCIÓN 3: COORDINADORA
+        ✏️ EDITAR: Cambiar nombre y teléfono de coordinadora
+        =====================================================
+        -->
+        <div class="coordinator-card">
+            <div class="coordinator-title">Contacto durante el Campamento</div>
+            <!-- ✏️ CAMBIAR AQUÍ: Nombre de la coordinadora -->
+            <div class="coordinator-name">👩‍💼 Karla Storch</div>
+            <!-- ✏️ CAMBIAR AQUÍ: Teléfono de contacto -->
+            <div class="coordinator-phone">📞 685 588 890</div>
+        </div>
+        
+        <!-- Content Sections -->
+        <div class="content-section">
+            
+            <!-- 
+            =====================================================
+            SECCIÓN 4: PROGRAMA DIARIO
+            ✏️ EDITAR: Solo si cambian los horarios o actividades
+            =====================================================
+            -->
+            <div class="section-card">
+                <div class="card-header">
+                    <span class="icon">📋</span>
+                    Programa Diario
+                </div>
+                <div class="card-content">
+                    <ul class="schedule-list">
+                        <!-- ✏️ CAMBIAR AQUÍ: Horarios y actividades si es necesario -->
+                        <li class="schedule-item">
+                            <div class="schedule-time">09:00-09:30</div>
+                            <div class="schedule-activity">Welcome & Free Play</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-time">09:40-10:10</div>
+                            <div class="schedule-activity">Assembly</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-time">10:10-11:00</div>
+                            <div class="schedule-activity">Story Time & Activities</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-time">11:00-11:45</div>
+                            <div class="schedule-activity">Breakfast & Free Game</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-time">11:45-12:05</div>
+                            <div class="schedule-activity">Water Games</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-time">12:05-12:40</div>
+                            <div class="schedule-activity">Song Time & Choreography</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-time">12:40-13:30</div>
+                            <div class="schedule-activity">Crafts</div>
+                        </li>
+                        <li class="schedule-item">
+                            <div class="schedule-time">13:30-14:00</div>
+                            <div class="schedule-activity">Free Play & Goodbye</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 
+            =====================================================
+            SECCIÓN 5: PLAN SEMANAL
+            ✏️ EDITAR: Cambiar actividades específicas de cada día
+            =====================================================
+            -->
+            <div class="section-card">
+                <div class="card-header">
+                    <span class="icon">🗓️</span>
+                    Plan Semanal
+                </div>
+                <div class="card-content">
+                    <div class="week-days">
+                        
+                        <!-- ✏️ LUNES: Cambiar emoji y descripción -->
+                        <div class="day-item">
+                            <div class="day-header">
+                                <div class="day-emoji">🏢</div>
+                                <div class="day-name">LUNES</div>
+                            </div>
+                            <div class="day-desc">Día en el centro Kids&Us Nigrán</div>
+                        </div>
+                        
+                        <!-- ✏️ MARTES: Cambiar emoji y descripción -->
+                        <div class="day-item special">
+                            <div class="day-header">
+                                <div class="day-emoji">🛒</div>
+                                <div class="day-name">MARTES</div>
+                            </div>
+                            <div class="day-desc">Kids&Us Market con frutas, bocadillos y dulces</div>
+                            <div class="day-note">No traer merienda este día</div>
+                        </div>
+                        
+                        <!-- ✏️ MIÉRCOLES: Cambiar emoji y descripción -->
+                        <div class="day-item">
+                            <div class="day-header">
+                                <div class="day-emoji">🏞️</div>
+                                <div class="day-name">MIÉRCOLES</div>
+                            </div>
+                            <div class="day-desc">Excursión al parque del barrio</div>
+                            <div class="day-note weather-note">☔ Puede cancelarse por mal tiempo</div>
+                        </div>
+                        
+                        <!-- ✏️ JUEVES: Cambiar emoji y descripción -->
+                        <div class="day-item special">
+                            <div class="day-header">
+                                <div class="day-emoji">🛒</div>
+                                <div class="day-name">JUEVES</div>
+                            </div>
+                            <div class="day-desc">Kids&Us Market con frutas, bocadillos y dulces</div>
+                            <div class="day-note">No traer merienda este día</div>
+                        </div>
+                        
+                        <!-- ✏️ VIERNES: Cambiar emoji, horario y descripción -->
+                        <div class="day-item event">
+                            <div class="day-header">
+                                <div class="day-emoji">🎉</div>
+                                <div class="day-name">VIERNES</div>
+                            </div>
+                            <div class="day-desc"><strong>13:45h - Evento de cierre</strong><br>¡Familias bienvenidas!</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 
+            =====================================================
+            SECCIÓN 6: QUÉ TRAER
+            ✏️ EDITAR: Solo si cambian los requisitos de equipaje
+            =====================================================
+            -->
+            <div class="section-card">
+                <div class="card-header">
+                    <span class="icon">🎒</span>
+                    Qué Traer
+                </div>
+                <div class="card-content">
+                    <!-- Traer Puesto -->
+                    <div class="packing-section-full">
+                        <div class="packing-title-main">👕 Traer Puesto desde Casa</div>
+                        <div class="packing-items-row">
+                            <!-- ✏️ CAMBIAR AQUÍ: Items que deben traer puestos -->
+                            <div class="packing-item-card">
+                                <div class="item-icon">🩱</div>
+                                <div class="item-text">Bañador y crema solar</div>
+                            </div>
+                            <div class="packing-item-card">
+                                <div class="item-icon">👟</div>
+                                <div class="item-text">Zapatos cómodos/deportivos</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- En la Mochila -->
+                    <div class="packing-section-full">
+                        <div class="packing-title-main">🎒 En la Mochila Diaria</div>
+                        <div class="packing-items-grid">
+                            <!-- ✏️ CAMBIAR AQUÍ: Items para la mochila -->
+                            <div class="packing-item-card">
+                                <div class="item-icon">💧</div>
+                                <div class="item-text">Botella de agua<br><small>(con nombre)</small></div>
+                            </div>
+                            <div class="packing-item-card">
+                                <div class="item-icon">🍎</div>
+                                <div class="item-text">Merienda<br><small>(L, X, V)</small></div>
+                            </div>
+                            <div class="packing-item-card">
+                                <div class="item-icon">🧢</div>
+                                <div class="item-text">Gorra</div>
+                            </div>
+                            <div class="packing-item-card">
+                                <div class="item-icon">🏖️</div>
+                                <div class="item-text">Toalla</div>
+                            </div>
+                            <div class="packing-item-card">
+                                <div class="item-icon">🩴</div>
+                                <div class="item-text">Chancletas</div>
+                            </div>
+                            <div class="packing-item-card">
+                                <div class="item-icon">👕</div>
+                                <div class="item-text">Muda completa</div>
+                            </div>
+                            <div class="packing-item-card">
+                                <div class="item-icon">🧥</div>
+                                <div class="item-text">Sudadera</div>
+                            </div>
+                            <div class="packing-item-card">
+                                <div class="item-icon">☀️</div>
+                                <div class="item-text">Protección solar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Important Notice -->
+            <div class="important-banner">
+                🏷️ TODO ETIQUETADO CON NOMBRE
+                <div class="important-subtitle">para evitar pérdidas</div>
+            </div>
+            
+            <!-- Health Alert -->
+            <div class="section-card">
+                <div class="card-header">
+                    <span class="icon">🩺</span>
+                    Información Médica
+                </div>
+                <div class="card-content">
+                    <div class="health-alert">
+                        Avisar de alergias, intolerancias o problemas de salud
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- 
+        =====================================================
+        SECCIÓN 7: CONTACTO
+        ✏️ EDITAR: Solo si cambia la coordinadora
+        =====================================================
+        -->
+        <div class="footer">
+            <div class="footer-title">📞 Contacto para Dudas</div>
+            <!-- ✏️ CAMBIAR AQUÍ: Teléfono de contacto -->
+            <div class="footer-phone">685 588 890</div>
+            <!-- ✏️ CAMBIAR AQUÍ: Nombre de la coordinadora -->
+            <div class="footer-subtitle">Karla Storch - Kids&Us Nigrán School Director</div>
+        </div>
+        
+        <!-- Farewell Message -->
+        <div class="farewell">
+            ¡Tenemos muchas ganas de disfrutar un campamento lleno de SUMMER FUN! 🎉☀️🇬🇧
+        </div>
+    </div>
+    
+    <button class="print-btn" onclick="window.print()">📄 PDF</button>
+</body>
+</html>
